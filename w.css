@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
@@ -41,8 +44,25 @@ nav {
 .content span{
   color: rgba(29, 153, 255, 0.815);
   font-style: italic;
-  backdrop-filter: blur( 4px );
+  user-select: none;
+  font-size: 59px;
+  color: white;
+  background: repeating-linear-gradient(-45deg, rgb(0, 119, 255) 0%, rgb(0, 132, 255) 7.14%, rgb(13, 169, 216) 14.28%,
+              rgb(0,255,255) 21.4%, rgb(1, 155, 216) 28.56%, blue 35.7%, rgb(0, 60, 255) 42.84%, rgb(0, 140, 255) 50%);
+  background-size: 600vw 600vw;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  animation: slide 10s linear infinite forwards;
 }
+@keyframes slide {
+  0%{
+    background-position-x: 0%;
+  }
+  100%{
+    background-position-x: 600vw;
+  }
+}
+
 
 .menu {
   display: -webkit-flex;
@@ -141,9 +161,9 @@ nav {
 
 
 
-.content p {
+.psy{
   width: 50%;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgb(255, 255, 255);
   line-height: 2;
 }
 

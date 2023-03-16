@@ -11,7 +11,9 @@
 
 body{
     background: radial-gradient(circle,#083302,#000000);
+    background-repeat: no-repeat;
     height: 100vh;
+    background-color: #0a240e;
 }
 
 
@@ -129,6 +131,7 @@ nav {
     background-size: cover;
     background-position: center;
   }
+
   
   .content h2 {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -147,7 +150,7 @@ nav {
   .wrapper {
     width: 1060px;
     margin: auto;
-    padding-top: 12%;
+    padding-top: 8%;
   }
   
   @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -203,88 +206,126 @@ nav {
     }
   }
 
-  #container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-  }
-  .box {
-    width: 100%;
-    max-width: 1170px;
-    padding: 15px;
-  }
-  .box h1 {
-    margin: 30px 0;
-    color: #ddd;
-    font-size: 35px;
-    text-align: center;
-    text-transform: uppercase;
-  }
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    text-align: center;
-  }
-  .card {
-    width: 30%;
-    padding: 30px 20px;
-    border-radius: 3px;
-    transition: transform .3s;
-    background: rgba(255, 255, 255, 0.089);
-    backdrop-filter: blur(30px);
-  }
-  .card-content {
-    color: #fff;
-  }
-  .card-content h2 {
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  .card-content p {
-    font-size: 14px;
-    line-height: 1.9;
-  }
-  .icons {
-    background: #ddd;
-    display: inline-block;
-    border-radius: 50%;
-    height: 80px;
-    width: 80px;
-    margin-bottom: 20px;
-  }
-  .icons i {
-    text-align: center;
-    line-height: 75px;
-    padding: 0px 25px;
-    font-size: 35px;
-  }
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    #container {
-      height: auto;
-    }
-    .box {
-      padding: 20px;
-    }
-    .card {
-      width: 100%;
-      margin-bottom: 30px;
-    }
-  }
-  @media only screen and (max-width: 767px) {
-    .box h1 {
-      font-size: 1.5rem
-    }
-    .cards {
-      justify-content: center;
-    }
-    .card {
-      margin-bottom: 20px;
-      width: 100%;
-    }
-  }
+.imsg{
+  width: 65em;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.075);
+  transform: scale(1);
+  transition: transform 0.5s ease;
+}
+.imsg:hover {
+  transform: scale(1.1);
+}
+.imsg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.imsg:hover::before {
+  opacity: 1;
+}
+#container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 60vh;
+}
+.box {
+	width: 100%;
+	max-width: 1170px;
+	padding: 15px;
+}
+.box h1 {
+	margin: 30px 0;
+	color: #ddd;
+	font-size: 35px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+	text-align: center;
+}
+.card {
+	width: 30%;
+	padding: 30px 20px;
+	border-radius: 3px;
+	transition: transform .3s;
+	background: rgba(0, 0, 0, 0.274);
+	backdrop-filter: blur(30px);
+}
+.card-content {
+	color: #fff;
+}
+.card-content h2 {
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+.card-content p {
+	font-size: 14px;
+	line-height: 1.9;
+}
+.icons {
+	background: #ddd;
+	display: inline-block;
+	border-radius: 50%;
+	height: 80px;
+	width: 80px;
+	margin-bottom: 20px;
+  background: repeating-linear-gradient(-45deg, rgb(0, 255, 21) 0%, rgb(1, 167, 23) 7.14%, rgb(50, 211, 98) 14.28%,
+  rgb(17, 172, 37) 21.4%, rgb(0, 212, 28) 28.56%, rgb(18, 138, 24) 35.7%, rgb(5, 110, 2) 42.84%, rgb(0, 240, 80) 50%);
+background-size: 600vw 600vw;
+-webkit-text-fill-color: transparent;
+-webkit-background-clip: text;
+animation: slide 10s linear infinite forwards;
+}
+@keyframes slide {
+0%{
+background-position-x: 0%;
+}
+100%{
+background-position-x: 600vw;
+}
+}
+.icons i {
+	text-align: center;
+	line-height: 75px;
+	padding: 0px;
+	font-size: 45px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	#container {
+		height: auto;
+	}
+	.box {
+		padding: 20px;
+	}
+	.card {
+		width: 100%;
+		margin-bottom: 30px;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.box h1 {
+		font-size: 1.5rem
+	}
+	.cards {
+		justify-content: center;
+	}
+	.card {
+		margin-bottom: 20px;
+		width: 100%;
+	}
+}

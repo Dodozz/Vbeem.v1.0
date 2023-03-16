@@ -11,7 +11,7 @@
   body{
       background: radial-gradient(circle,#24246e,#06051f);
       height: 100vh;
-      cursor: url(Cursor.png), auto;
+      cursor:url(Cursor.png), auto;
   }
   a{
     cursor: url(Cursor.png), auto;

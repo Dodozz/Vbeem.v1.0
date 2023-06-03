@@ -13,7 +13,7 @@ body{
     background: radial-gradient(circle,#083302,#000000);
     background-repeat: no-repeat;
     height: 100vh;
-    background-color: #0a240e;
+    background-color: #000000;
 }
 
 
@@ -328,4 +328,8 @@ background-position-x: 600vw;
 		margin-bottom: 20px;
 		width: 100%;
 	}
+}
+a{
+  color: rgb(7, 199, 7);
+  text-decoration: none;
 }

